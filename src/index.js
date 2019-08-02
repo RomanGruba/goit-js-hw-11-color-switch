@@ -33,14 +33,17 @@ function changeColor() {
 
 let timerId = null;
 
-buttonStart.addEventListener('click', () => {
+buttonStart.addEventListener('click', startChangingTheme);
+buttonStop.addEventListener('click', stopChangingTheme);
+
+function startChangingTheme() {
   timerId = setInterval(changeColor, 1000);
   buttonStart.disabled = true;
   buttonStart.style.color = '#FF0000';
-});
+}
 
-buttonStop.addEventListener('click', () => {
+function stopChangingTheme() {
   clearInterval(timerId);
   buttonStart.disabled = false;
   buttonStart.style.color = '#FFFFFF';
-});
+}
